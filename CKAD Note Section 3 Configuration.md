@@ -750,6 +750,15 @@ FIELDS:
      set tabstop=2
      ```
      <br>
+
+     ```bash
+     ## 2021/11/22 新增 (不用死記，進去 vim tab 的出來)
+     ## 新增之後就不用拿尺對 YAML file 了!
+     
+     set cursorcolumn
+     set cursorline
+     ```
+     <br>
   4. 使用考場 (網頁) 提供的 note pad 記下題號與佔分，如果你要跳題的話
 
 <br>
