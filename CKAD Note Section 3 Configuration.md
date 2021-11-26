@@ -57,7 +57,7 @@ container 不像 VM 一樣需要維持 OS 運作，當手上沒有需要「存�
 
 ![pod_env_0](pod_env_0.jpg)
 
-▲ `env` 被放在 `.spec.containers.env`。 **<span style='color:red'>而且是個 array</span>**
+▲ `env` 被放在 `.spec.containers.env`。 **<span style='color:red'>而且是個 array。透過 `kubectl run -e <key>=<value>` 可以快速加上環境變數</span>**
 
 <br>
 
