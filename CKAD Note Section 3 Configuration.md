@@ -70,7 +70,7 @@ container 不像 VM 一樣需要維持 OS 運作，當手上沒有需要「存�
 如果把 `env` 散落在每一個 `YAML` 裡面會變得不好管理，**`configMap` 就是為了中央化管理而誕生。** 
 
 
-BTW~ 在 `kubectl` CLI 的世界裡面有兩種創建元件的方式: **1. Imperative (命令式)   2. Declarative (宣告式)** (不確定考試是否會要求)\
+BTW~ 在 `kubectl` CLI 的世界裡面有兩種創建元件的方式: **1. Imperative (命令式)   2. Declarative (宣告式)** (不確定考試是否會要求 2022.04.28 更新: 不會)\
 [[ithelp]Buzz Word 1 : Declarative vs. Imperative](https://ithelp.ithome.com.tw/articles/10233761)
 
 <br>
@@ -125,6 +125,8 @@ data:
 
 #### 解題技巧
 
+
+**<span style='color:blue'>2022.04.28 考試時建議直接開 bookmark 看語法就好，這個方法會比較慢</span>**
 
 ```bash
 kubectl explain <k8s_component> --recursive | grep 'envFrom' -A3
@@ -215,9 +217,9 @@ spec:
 ### 50. Docker Security
 
 
-Docker 預設在 container 內使用 root 來執行 process，這個 root 跟 host root 不一樣，是權限有被限縮的 root。\
+**<span style='color:red'>Docker 預設在 container 內使用 root 來執行 process，這個 root 跟 host root 不一樣，是權限有被限縮的 root。</span>**\
 下圖是 Linux root 所有 root 的超能力 (capabilities)，在 `/usr/include/linux/capability.h` 有定義。\
-在 `docker run` 的時候可以 1. 更改使用者 PID (--user 1000)  2. 增減 root 超能力 `docker run --cap-add MAC_ADMI ubuntu`
+**<span style='color:blue'>在 `docker run` 的時候可以 1. 更改使用者 PID (--user 1000)  2. 增減 root 超能力 `docker run --cap-add MAC_ADMI ubuntu`</span>**
 
 <br>
 
@@ -415,7 +417,7 @@ spec:
 
 ![adjust_pod_resource](adjust_pod_resource.jpg)
 
-▲ 調整 `pod` resources 必須砍掉重練。
+**<span style='color:red'>▲ 調整 `pod` resources 必須砍掉重練。</span>**
 
 <br>
 
@@ -535,6 +537,9 @@ kubectl label nodes <node-name> <key>=<value>
 kubectl describe nodes <node-name> | grep -i 'label'
 
 Labels:             beta.kubernetes.io/arch=amd64
+
+## remove label on node
+kubectl label nodes <node-name> <key>=<value>-
 ```
 
 <br>
@@ -701,7 +706,7 @@ FIELDS:
 <br>
 
 
-- **<span style='color:purple'>Taint and Toleration:</span>** 可以保證 node 上只有正確的 `pod`，**但不能保證彩色的 `pod` 不會被丟去灰色的 Other (worker-node)!**
+- **<span style='color:purple'>Taint and Toleration:</span>** 可以保證 node 上只有正確的 `pod`，**<span style='color:red'>但不能保證彩色的 `pod` 不會被丟去灰色的 Other (worker-node)!</span>**
 
 <br>
 
